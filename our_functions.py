@@ -1,3 +1,5 @@
+import re
+
 def is_valid_date(date_str):
   """
   Checks if a string is a valid date in YYYY-MM-DD format without using regular expressions.
@@ -37,4 +39,28 @@ def is_valid_date(date_str):
   except ValueError:  # ValueError occurs if conversion to int fails
     return False
 
+  return True
+
+
+
+def is_valid_username(username, minlen):
+  # Checks if the received username matches the required conditions.
+  if type(username) != str:
+    raise TypeError("username must be a string")
+      
+  if minlen < 1:
+    raise ValueError("minlen must be at least 1")
+   
+  # Usernames can't be shorter than minlen
+  if len(username) < minlen:
+    return False
+  
+  # Usernames can only use letters, numbers, dots and underscores
+  if not re.match('^[a-z0-9._]*$', username):
+    return False
+  
+  # Usernames can't begin with a number
+  if username[0].isnumeric():
+    return False
+  
   return True
