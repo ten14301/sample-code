@@ -11,7 +11,7 @@ python -m unit_test_our_functions --verbose
 ref: https://pypi.org/project/coverage/
 
 ```
-python -m coverage run -m unittest unit_test_our_functions.py --verbose
+coverage run -m unittest unit_test_our_functions.py --verbose
 ```
 
 ```
